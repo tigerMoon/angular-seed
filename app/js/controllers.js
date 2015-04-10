@@ -1,11 +1,21 @@
 'use strict';
 /* App Controllers */
+var demoControllers = angular.module('demoControllers', []);
 
+demoControllers.controller('PaginationDemoCtrl', function ($scope, $log) {
+  $scope.totalItems = 64;
+  $scope.currentPage = 4;
 
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
+  $scope.setPage = function (pageNo) {
+    $scope.currentPage = pageNo;
+  };
 
+  $scope.pageChanged = function() {
+    $log.log('Page changed to: ' + $scope.currentPage);
+  };
 
-function MyCtrl2() {
-}
-MyCtrl2.$inject = [];
+  $scope.maxSize = 5;
+  $scope.bigTotalItems = 175;
+  $scope.bigCurrentPage = 1;
+});
+
